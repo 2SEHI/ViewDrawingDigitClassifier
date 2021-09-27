@@ -24,7 +24,7 @@ public class Classifier {
     Context context;
 
     // 모델의 이름을 저장할 변수
-    public static String MODEL_NAME = "keras_model_resNet.tflite";
+    public static final String MODEL_NAME = "keras_model_resNet.tflite";
 
     // tflite를 사용하기 위해서 필요한 변수
     Interpreter interpreter;
@@ -48,12 +48,13 @@ public class Classifier {
         // python언어로 만들어진 tflite모델을 byte단위로 읽어온 다음에
         // 각 바이트의 순서를 맞추는 설정입니다.
         model.order(ByteOrder.nativeOrder());
-        // tflite모델을 사용하기 위한 객체를 생성
+        // tflite 모델을 메모리에 올리기
         interpreter = new Interpreter(model);
         // 이미지 전처리를 위한 변수값을 설정하는 메소드 호출
         initModelShape();
     }
 
+    // 이미지 크기를 변환하는 메소드
     private Bitmap resizeBitmap(Bitmap bitmap){
         // bitmat을 modelInputWidth, modelInputHeight 크기로 변환하고
         // filter는 최근접 보간법을 사용합니다

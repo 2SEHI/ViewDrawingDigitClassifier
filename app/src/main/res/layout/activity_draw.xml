@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DrawActivity">
-
+    <!--  그림을 그릴 DrawView  -->
     <com.divyanshu.draw.widget.DrawView
         android:id="@+id/drawView"
         android:layout_width="match_parent"
@@ -23,12 +23,14 @@
         app:layout_constraintBottom_toTopOf="@id/resultView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+        <!--  숫자분류버튼  -->
         <Button
             android:id="@+id/classifyBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Classify"
             />
+        <!--  DrawView초기화버튼  -->
         <Button
             android:id="@+id/clearBtn"
             android:layout_width="wrap_content"
@@ -37,6 +39,7 @@
             android:layout_marginStart="10dp"
             />
     </LinearLayout>
+    <!-- 분류결과 출력TextView -->
     <TextView
         android:id="@+id/resultView"
         android:layout_width="wrap_content"
